@@ -23,8 +23,9 @@
     {% endfor %}
 {% endif %}
 
-<h1>Entries in database</h1>
 {% if info %}
+<h1>Entries in database</h1>
+
     {% for i in info %}
 <a href="{% url 'update' i.id %}">{{i}}</a>
     <br><br>
