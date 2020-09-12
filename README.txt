@@ -1,0 +1,1 @@
+Just made a login/logout page without graphics . Feel free to use in your project,make changes in it or add bootstrap in it. 
