@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update page</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        {% for i in forms %}
+            {{i.label_tag}} {{i}} {{i.errors|striptags}}
+            <br><br>
+        {% endfor %}
+        <input value="Submit" type="Submit">
+    </form>
+    {% if messages %}
+        {% for i in messages %}
+            {{i}}
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

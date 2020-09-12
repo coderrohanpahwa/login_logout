@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+<h1>Hello {{name}} . Hoping fine there </h1>
+<h1>Changing details </h1>
+    <form method="POST">
+        {% csrf_token %}
+        {% for i in forms %}
+            {{i.label_tag}} {{i}} {{i.errors}}
+
+
+            <br><br>
+        {% endfor %}
+        <input type="Submit" value="Submit">
+    </form>
+{% if messages %}
+    {% for i in messages %}
+        {{i.label_tag}} {{i}} {{i.errors|striptags}}
+    {% endfor %}
+{% endif %}
+
+<h1>Entries in database</h1>
+{% if info %}
+    {% for i in info %}
+<a href="{% url 'update' i.id %}">{{i}}</a>
+    <br><br>
+    {% endfor%}
+{% endif %}
+
+
+<a href="{% url 'change_pass' %}">Change Password</a>
+<a href="{% url 'logout' %}">Log out</a>
+</body>
+</html>
